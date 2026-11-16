@@ -1,14 +1,25 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TimeEntries.Web.Models;
+using TimeEntries.Web.Services;
 
 namespace TimeEntries.Web.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+    private readonly ITimeEntryApiClient _apiClient;
+
+    public HomeController(ITimeEntryApiClient apiClient)
     {
-        return View();
+        _apiClient = apiClient;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var entries = await _apiClient.GetTimeEntriesAsync();
+        var employees = EmployeeHoursCalculator.Calculate(entries);
+
+        return View(employees);
     }
 
     public IActionResult Privacy()
