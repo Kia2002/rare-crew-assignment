@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="TimeEntries.Web.Tests/TimeEntries.Web.Tests.csproj" />
   <Project Path="TimeEntries.Web/TimeEntries.Web.csproj" />
 </Solution>
