@@ -36,11 +36,6 @@ public class HomeController : Controller
         return EmployeeHoursCalculator.Calculate(entries);
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
