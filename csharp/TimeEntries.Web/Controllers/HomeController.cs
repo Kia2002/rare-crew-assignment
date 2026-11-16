@@ -16,10 +16,24 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var entries = await _apiClient.GetTimeEntriesAsync();
-        var employees = EmployeeHoursCalculator.Calculate(entries);
+        var employees = await GetEmployeeHoursAsync();
 
         return View(employees);
+    }
+
+    public async Task<IActionResult> Chart()
+    {
+        var employees = await GetEmployeeHoursAsync();
+        var png = HoursPieChart.CreatePng(employees);
+
+        return File(png, "image/png");
+    }
+
+    private async Task<IReadOnlyList<EmployeeHours>> GetEmployeeHoursAsync()
+    {
+        var entries = await _apiClient.GetTimeEntriesAsync();
+
+        return EmployeeHoursCalculator.Calculate(entries);
     }
 
     public IActionResult Privacy()

@@ -4,22 +4,32 @@
 }
 
 <h1 class="mb-3">Time worked per employee</h1>
-<p class="text-muted">Highlighted rows worked less than @EmployeeHours.LowHoursThreshold hours.</p>
 
-<table class="table table-bordered">
-    <thead class="table-light">
-        <tr>
-            <th>Name</th>
-            <th class="text-end">Total time worked</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var employee in Model)
-        {
-            <tr class="@(employee.HasLowHours ? "table-danger" : null)">
-                <td>@employee.Name</td>
-                <td class="text-end">@employee.TotalHours.ToString("0.0") h</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="row g-4">
+    <div class="col-lg-5">
+        <p class="text-muted">Highlighted rows worked less than @EmployeeHours.LowHoursThreshold hours.</p>
+
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th class="text-end">Total time worked</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr class="@(employee.HasLowHours ? "table-danger" : null)">
+                        <td>@employee.Name</td>
+                        <td class="text-end">@employee.TotalHours.ToString("0.0") h</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-lg-7">
+        <p class="text-muted">Share of the total time worked.</p>
+        <img src="@Url.Action("Chart")" class="img-fluid" alt="Pie chart of each employee's share of the total time worked" />
+    </div>
+</div>
