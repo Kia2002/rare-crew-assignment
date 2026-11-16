@@ -1,7 +1,13 @@
+using TimeEntries.Web.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient<ITimeEntryApiClient, TimeEntryApiClient>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["TimeEntryApi:BaseUrl"]!);
+});
 
 var app = builder.Build();
 
