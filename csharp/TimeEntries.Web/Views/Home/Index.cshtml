@@ -31,5 +31,6 @@
     <div class="col-lg-7">
         <p class="text-muted">Share of the total time worked.</p>
         <img src="@Url.Action("Chart")" class="img-fluid" alt="Pie chart of each employee's share of the total time worked" />
+        <a href="@Url.Action("Chart", new { download = true })" class="btn btn-outline-secondary btn-sm mt-2">Download PNG</a>
     </div>
 </div>

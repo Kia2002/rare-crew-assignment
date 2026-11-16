@@ -21,12 +21,14 @@ public class HomeController : Controller
         return View(employees);
     }
 
-    public async Task<IActionResult> Chart()
+    public async Task<IActionResult> Chart(bool download = false)
     {
         var employees = await GetEmployeeHoursAsync();
         var png = HoursPieChart.CreatePng(employees);
 
-        return File(png, "image/png");
+        return download
+            ? File(png, "image/png", "employee-hours.png")
+            : File(png, "image/png");
     }
 
     private async Task<IReadOnlyList<EmployeeHours>> GetEmployeeHoursAsync()
