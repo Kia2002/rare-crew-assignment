@@ -1,0 +1,24 @@
+# .NET build output
+bin/
+obj/
+
+# Angular / Node
+node_modules/
+dist/
+.angular/
+
+# IDE
+.vs/
+.idea/
+*.user
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Secrets (API key lives in User Secrets / env variables, never in the repo)
+.env
+.env.*
+
+# Assignment PDFs (company material)
+*.pdf
