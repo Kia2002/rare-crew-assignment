@@ -14,7 +14,7 @@ public static class EmployeeHoursCalculator
             .Where(entry => entry.DeletedOn is null)
             .Where(entry => !string.IsNullOrWhiteSpace(entry.EmployeeName))
             .Where(entry => entry.EndTimeUtc > entry.StartTimeUtc)
-            .GroupBy(entry => entry.EmployeeName!)
+            .GroupBy(entry => entry.EmployeeName!.Trim())
             .Select(group => new EmployeeHours
             {
                 Name = group.Key,

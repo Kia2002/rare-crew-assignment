@@ -40,6 +40,22 @@ public class EmployeeHoursCalculatorTests
     }
 
     [Fact]
+    public void Calculate_TreatsNamesWithSurroundingSpacesAsSameEmployee()
+    {
+        var entries = new[]
+        {
+            CreateEntry("Ana", hours: 2),
+            CreateEntry(" Ana ", hours: 3)
+        };
+
+        var result = EmployeeHoursCalculator.Calculate(entries);
+
+        var employee = Assert.Single(result);
+        Assert.Equal("Ana", employee.Name);
+        Assert.Equal(5, employee.TotalHours);
+    }
+
+    [Fact]
     public void Calculate_SkipsDeletedEntries()
     {
         var entries = new[]
