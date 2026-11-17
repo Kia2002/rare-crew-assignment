@@ -1,3 +1,11 @@
 <main>
   <h1>Time worked per employee</h1>
+
+  @if (timeEntries.isLoading()) {
+    <p>Loading time entries...</p>
+  } @else if (timeEntries.error()) {
+    <p>Could not load time entries. Please try again later.</p>
+  } @else {
+    <p>{{ timeEntries.value()?.length }} time entries loaded.</p>
+  }
 </main>
