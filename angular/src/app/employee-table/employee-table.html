@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="hours">Total time worked</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (employee of employees(); track employee.name) {
+      <tr>
+        <td>{{ employee.name }}</td>
+        <td class="hours">{{ employee.totalHours | number: '1.1-1' }} h</td>
+      </tr>
+    }
+  </tbody>
+</table>
