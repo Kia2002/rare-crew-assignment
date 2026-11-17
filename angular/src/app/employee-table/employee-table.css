@@ -16,3 +16,11 @@ th {
 .hours {
   text-align: right;
 }
+
+.low-hours {
+  background-color: #f8d7da;
+}
+
+.note {
+  color: #6c757d;
+}

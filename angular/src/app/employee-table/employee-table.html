@@ -1,3 +1,5 @@
+<p class="note">Highlighted rows worked less than {{ lowHoursThreshold }} hours.</p>
+
 <table>
   <thead>
     <tr>
@@ -7,7 +9,7 @@
   </thead>
   <tbody>
     @for (employee of employees(); track employee.name) {
-      <tr>
+      <tr [class.low-hours]="employee.hasLowHours">
         <td>{{ employee.name }}</td>
         <td class="hours">{{ employee.totalHours | number: '1.1-1' }} h</td>
       </tr>

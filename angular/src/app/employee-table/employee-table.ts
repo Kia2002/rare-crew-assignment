@@ -1,6 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { EmployeeHours } from '../employee-hours';
+import { EmployeeHours, LOW_HOURS_THRESHOLD } from '../employee-hours';
 
 @Component({
   imports: [DecimalPipe],
@@ -10,4 +10,6 @@ import { EmployeeHours } from '../employee-hours';
 })
 export class EmployeeTable {
   readonly employees = input.required<EmployeeHours[]>();
+
+  protected readonly lowHoursThreshold = LOW_HOURS_THRESHOLD;
 }
