@@ -47,10 +47,11 @@ export class EmployeeChart {
       plugins: [ChartDataLabels],
       data: { labels: names, datasets: [{ data: hours, backgroundColor: SLICE_COLORS }] },
       options: {
+        aspectRatio: 1.5,
         plugins: {
-          legend: { position: 'bottom' },
+          legend: { position: 'right' },
           datalabels: {
-            color: 'white',
+            color: 'black',
             formatter: (value: number) => `${Math.round((value / totalHours) * 100)}%`,
           },
         },

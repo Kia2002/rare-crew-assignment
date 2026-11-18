@@ -1,15 +1,22 @@
+:host {
+  display: block;
+  width: 450px;
+  max-width: 100%;
+}
+
 table {
+  width: 100%;
   border-collapse: collapse;
 }
 
 th,
 td {
-  border: 1px solid #d0d0d0;
+  border: 1px solid #dee2e6;
   padding: 0.5rem 0.75rem;
 }
 
 th {
-  background-color: #f5f5f5;
+  background-color: #f8f9fa;
   text-align: left;
 }
 
@@ -19,8 +26,4 @@ th {
 
 .low-hours {
   background-color: #f8d7da;
-}
-
-.note {
-  color: #6c757d;
 }
