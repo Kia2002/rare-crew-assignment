@@ -1,4 +1,5 @@
-﻿@model IReadOnlyList<EmployeeHours>
+﻿@using System.Globalization
+@model IReadOnlyList<EmployeeHours>
 @{
     ViewData["Title"] = "Time Worked";
 }
@@ -21,7 +22,7 @@
                 {
                     <tr class="@(employee.HasLowHours ? "table-danger" : null)">
                         <td>@employee.Name</td>
-                        <td class="text-end">@employee.TotalHours.ToString("0.0") h</td>
+                        <td class="text-end">@employee.TotalHours.ToString("0.0", CultureInfo.InvariantCulture) h</td>
                     </tr>
                 }
             </tbody>
