@@ -6,7 +6,9 @@
   } @else if (timeEntries.error()) {
     <p>Could not load time entries. Please try again later.</p>
   } @else {
-    <app-employee-table [employees]="employees()" />
-    <app-employee-chart [employees]="employees()" />
+    <div class="content">
+      <app-employee-table [employees]="employees()" />
+      <app-employee-chart [employees]="employees()" />
+    </div>
   }
 </main>
